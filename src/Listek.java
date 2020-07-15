@@ -6,7 +6,7 @@
 //When the application is ran with -l argument
 //Then it should print the tasks that are stored in the file
 //And it should add numbers before each
-//$ todo -l
+//
 //
 //1 - Walk the dog
 //2 - Buy milk
@@ -15,16 +15,22 @@
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
+import java.util.*;
 
-public class List {
+
+public class Listek {
   public static void main(String[] args) {
-    try {
-      Path filePath = Paths.get("list.txt");
-      List <String> lines = Files.readAllLines(filePath);
-      System.out.println(lines.get(0)); // Prints the first line of the file
-    } catch (Exception e) {
-      System.out.println("Uh-oh, could not read the file!");
+    if (args.equals("-l")) {
+      try {
+        Path filePath = Paths.get("list.txt");
+
+        List<String> lines = Files.readAllLines(filePath);
+        for (int i = 0; i < lines.size(); i++) {
+          System.out.println(i + lines.get(i));
+        }
+      } catch (Exception e) {
+        System.out.println("Uh-oh, could not read the file!");
+      }
     }
   }
 }
-
