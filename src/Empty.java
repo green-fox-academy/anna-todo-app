@@ -11,7 +11,7 @@ import java.util.*;
 
 public class Empty {
   public static void main(String[] args) {
-    if (args.equals("-l")) {
+    if (args[0].equals("-l")) {
       try {
         Path filePath = Paths.get("empty.txt");
         List<String> lines = Files.readAllLines(filePath);
