@@ -13,21 +13,22 @@ import java.util.List;
 public class CheckList {
 
   public static String check(String checkedItem) {
-    return checkedItem = "[x]" + checkedItem;
+    return "[x]" + checkedItem;
   }
 
   public static void main(String[] args) {
-    if (args[0].equals("-c2")) {
       try {
         Path filePath = Paths.get("listek.txt");
         List<String> lines = Files.readAllLines(filePath);
-        System.out.println(check(lines.get(1)));
         for (int i = 0; i < lines.size(); i++) {
-          System.out.println(i + " - " + lines.get(i));
+          if ((Integer.parseInt(args[1]) - 1) == i) {
+            System.out.println(i + " - " + check(lines.get(i)));
+          } else {
+            System.out.println(i + " - " + lines.get(i));
+          }
         }
       } catch (Exception e) {
         System.out.println("Uh-oh, could not read the file!");
       }
     }
   }
-}
